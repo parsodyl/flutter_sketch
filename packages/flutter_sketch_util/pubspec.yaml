@@ -1,6 +1,7 @@
 name: flutter_sketch_util
 description: Utilities for generative art in Flutter.
 version: 0.0.1
+repository: https://github.com/parsodyl/flutter_sketch/tree/main/packages/flutter_sketch_util
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
