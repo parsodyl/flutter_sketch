@@ -1,7 +1,7 @@
 name: flutter_sketch_util_core
 description: Utilities for generative art in plain Dart.
 version: 0.0.1
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/parsodyl/flutter_sketch/tree/main/packages/flutter_sketch_util_core
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
