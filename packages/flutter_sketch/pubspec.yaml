@@ -1,7 +1,7 @@
 name: flutter_sketch
 description: An environment for making generative artwork with Flutter.
 version: 0.0.1
-homepage:
+repository: https://github.com/parsodyl/flutter_sketch/tree/main/packages/flutter_sketch
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
