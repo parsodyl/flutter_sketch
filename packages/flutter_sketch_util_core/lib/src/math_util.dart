@@ -4,10 +4,6 @@ import 'package:vector_math/vector_math_64.dart' as v;
 
 typedef Vector2 = v.Vector2;
 
-/*extension Vector2Extension on Vector2 {
-  Offset toOffset() => Offset(x, y);
-}*/
-
 typedef List2D<T> = List<List<T>>;
 
 List2D<T> generateList2D<T>(
