@@ -1,0 +1,10 @@
+name: FlutterSketch
+repository: https://github.com/parsodyl/flutter_sketch
+
+packages:
+  - packages/**
+  - examples/
+
+scripts:
+  analyze:
+    exec: dart analyze .
