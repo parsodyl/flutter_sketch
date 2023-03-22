@@ -2,7 +2,7 @@ name: FlutterSketch
 repository: https://github.com/parsodyl/flutter_sketch
 
 packages:
-  - packages/**
+  - packages/*
   - examples/
 
 scripts:
