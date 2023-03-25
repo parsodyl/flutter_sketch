@@ -4,7 +4,9 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_sketch/src/sketch_controller.dart';
 
 abstract class SketchAnimator {
-  SketchAnimator(this._sketchController, this._fps) : assert(_fps > 0);
+  SketchAnimator(this._sketchController, this._fps) : assert(_fps > 0) {
+    _sketchController.resetFrameRate();
+  }
 
   final SketchController _sketchController;
   int _fps;

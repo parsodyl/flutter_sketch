@@ -10,8 +10,8 @@ class SketchController {
   int _frameCount = 0;
   int _actualFrameRate = 0;
 
-  _FrameRateCalculator _frameRateCalculator =
-      _FrameRateCalculator(Duration.zero, 0);
+  late _FrameRateCalculator _frameRateCalculator =
+      _FrameRateCalculator(Duration.zero, _frameCount);
 
   bool _isRendering = false;
 
@@ -57,6 +57,11 @@ class SketchController {
     }
     // render
     render();
+  }
+
+  void resetFrameRate() {
+    _actualFrameRate = 0;
+    _frameRateCalculator = _FrameRateCalculator(Duration.zero, _frameCount);
   }
 
   void dispose() {
@@ -116,10 +121,11 @@ class _FrameRateCalculator {
     _currentFrames = frames;
   }
 
-  bool get isSecondReached =>
-      currentElapsedTime - initialElapsedTime >= const Duration(seconds: 1);
+  bool get isSecondReached => _timeSpan >= const Duration(seconds: 1);
 
-  int get frameRate => ((currentFrames - initialFrames) /
-          (currentElapsedTime - initialElapsedTime).inSeconds)
-      .round();
+  int get frameRate => _timeSpan.inSeconds > 0
+      ? ((currentFrames - initialFrames) / _timeSpan.inSeconds).round()
+      : 0;
+
+  Duration get _timeSpan => currentElapsedTime - initialElapsedTime;
 }
