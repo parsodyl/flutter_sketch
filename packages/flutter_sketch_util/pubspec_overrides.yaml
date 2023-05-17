@@ -1,4 +1,0 @@
-# melos_managed_dependency_overrides: flutter_sketch_util_core
-dependency_overrides:
-  flutter_sketch_util_core:
-    path: ../flutter_sketch_util_core
