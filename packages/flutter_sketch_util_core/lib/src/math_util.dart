@@ -28,7 +28,7 @@ double radToDeg(double rad) {
   return rad * 180.0 / pi;
 }
 
-extension DoubleX on double {
+extension DoubleExtension on double {
   double mapRange(
     double inputMin,
     double inputMax,
