@@ -37,19 +37,19 @@ class RgbaColor {
 
   int get red => _vector.r.toByte();
 
-  set red(int value) => _vector.r = value.toFloat();
+  set red(int value) => _vector.r = value.normalize().toFloat();
 
   int get green => _vector.g.toByte();
 
-  set green(int value) => _vector.g = value.toFloat();
+  set green(int value) => _vector.g = value.normalize().toFloat();
 
   int get blue => _vector.b.toByte();
 
-  set blue(int value) => _vector.b = value.toFloat();
+  set blue(int value) => _vector.b = value.normalize().toFloat();
 
   int get alpha => _vector.a.toByte();
 
-  set alpha(int value) => _vector.a = value.toFloat();
+  set alpha(int value) => _vector.a = value.normalize().toFloat();
 }
 
 extension _$int on int {
