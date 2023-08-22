@@ -19,20 +19,19 @@ class Sketch04 extends StatelessWidget {
         const rows = 10;
 
         // set size variables
-        final gridWidth = size.width * 0.8;
-        final gridHeight = size.height * 0.8;
-        final cellWidth = gridWidth / cols;
-        final cellHeight = gridHeight / rows;
-        final marginX = (size.width - gridWidth) * 0.5;
-        final marginY = (size.height - gridHeight) * 0.5;
+        final gridSize = size * 0.8;
+        final cellSize = Size(gridSize.width / cols, gridSize.height / rows);
+        final cellCenter = cellSize.centerFromZero;
+        final horizontalMargin = (size.width - gridSize.width) * 0.5;
+        final verticalMargin = (size.height - gridSize.height) * 0.5;
 
         // generate grid
         GridIterator(cols, rows).forEachCell((colIndex, rowIndex) {
           // get relative constraints
-          final x = colIndex * cellWidth;
-          final y = rowIndex * cellHeight;
-          final w = cellWidth * 0.8;
-          final h = cellHeight * 0.8;
+          final x = colIndex * cellSize.width;
+          final y = rowIndex * cellSize.height;
+          final w = cellSize.width * 0.8;
+          final h = cellSize.height * 0.8;
 
           // tweak noise
           final frame = props.frameCount;
@@ -40,11 +39,11 @@ class Sketch04 extends StatelessWidget {
           final angle = n * pi * 0.2;
           final scale = n.mapRange(-1, 1, 1, 30);
 
-          // transform canvas
+          // move canvas
           canvas.save();
+          canvas.translate(horizontalMargin, verticalMargin);
           canvas.translate(x, y);
-          canvas.translate(marginX, marginY);
-          canvas.translate(cellWidth * .5, cellHeight * .5);
+          canvas.translate(cellCenter.dx, cellCenter.dy);
           canvas.rotate(angle);
 
           // set paint

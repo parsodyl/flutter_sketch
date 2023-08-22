@@ -12,10 +12,7 @@ class Sketch02 extends StatelessWidget {
     return FlutterSketch(
       backgroundColor: Colors.white,
       sketcher: (context, props) => (canvas, size, basePaint) {
-        final c = Offset(
-          size.width * .5,
-          size.height * .5,
-        );
+        final center = size.centerFromZero;
 
         final width = size.width * 0.01;
         final height = size.height * 0.1;
@@ -27,8 +24,8 @@ class Sketch02 extends StatelessWidget {
           final slice = degToRad(360 / num);
           final angle = slice * i;
 
-          final x = c.dx + radius * sin(angle);
-          final y = c.dy + radius * cos(angle);
+          final x = center.dx + radius * sin(angle);
+          final y = center.dy + radius * cos(angle);
 
           canvas.save();
           canvas.translate(x, y);
@@ -49,7 +46,7 @@ class Sketch02 extends StatelessWidget {
           canvas.restore();
 
           canvas.save();
-          canvas.translate(c.dx, c.dy);
+          canvas.translate(center.dx, center.dy);
           canvas.rotate(-angle);
 
           basePaint.strokeWidth = random.range(5, 20);
